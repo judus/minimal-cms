@@ -1,0 +1,36 @@
+CACHE MANIFEST
+# minimal-framework 
+# Time: Sun Feb 19 2017 04:40:22 GMT+0100 (CET)
+
+CACHE:
+../../public/build/my-theme/js/ckconfig.js
+../../public/build/my-theme/js/ckstyles.js
+../../public/build/my-theme/js/cms.js
+../../public/build/my-theme/js/cms.min.js
+../../public/build/my-theme/js/cms.min.js.map
+../../public/build/my-theme/js/fallback.js
+../../public/build/my-theme/js/main.js
+../../public/build/my-theme/js/main.min.js
+../../public/build/my-theme/js/main.min.js.map
+../../public/build/my-theme/js/vendor.js
+../../public/build/my-theme/js/vendor.min.js
+../../public/build/my-theme/js/vendor.min.js.map
+../../public/build/my-theme/css/main.css
+../../public/build/my-theme/css/main.css.diff
+../../public/build/my-theme/css/main.min.css
+../../public/build/my-theme/css/minimal.css
+../../public/build/my-theme/css/minimal.min.css
+../../public/build/my-theme/fonts/FontAwesome.otf
+../../public/build/my-theme/fonts/fontawesome-webfont.eot
+../../public/build/my-theme/fonts/fontawesome-webfont.svg
+../../public/build/my-theme/fonts/fontawesome-webfont.ttf
+../../public/build/my-theme/fonts/fontawesome-webfont.woff
+../../public/build/my-theme/fonts/fontawesome-webfont.woff2
+../../public/build/my-theme/fonts/glyphicons-halflings-regular.eot
+../../public/build/my-theme/fonts/glyphicons-halflings-regular.svg
+../../public/build/my-theme/fonts/glyphicons-halflings-regular.ttf
+../../public/build/my-theme/fonts/glyphicons-halflings-regular.woff
+humans.txt
+
+NETWORK:
+*

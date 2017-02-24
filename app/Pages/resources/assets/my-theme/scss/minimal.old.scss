@@ -1,0 +1,286 @@
+// Return a lighter color
+// 0% is the same color, 100% is white
+@function tint($color, $percent: 0%, $alpha: 1) {
+	@return rgba(mix(white, $color, $percent), $alpha);
+}
+
+// Return a darker color
+// 0% is the same color, 100% is black
+@function shade($color, $percent: 0%, $alpha: 1) {
+	@return rgba(mix(black, $color, $percent), $alpha);
+}
+
+// Return an intensity of white
+// 0% is black, 50% is a middle gray, 100% is white
+@function white($percent: 100%, $alpha: 1) {
+	@return rgba(mix(white, black, $percent), $alpha);
+}
+
+// Return an intensity of black
+// 0% is white, 50% is a middle gray, 100% is black
+@function black($percent: 100%, $alpha: 1) {
+	@return rgba(mix(black, white, $percent), $alpha);
+}
+
+$font-color: white;
+
+$main-color: #6B8E23;
+$main-color2: #638522;
+$main-color3: #3D5F8E;
+$main-color4: #C03F3E;
+$main-color5: #306E76;
+$main-color6: #7B5DCB;
+$main-color7: #937D2A;
+//$element-color: #939B25;
+//$button-color: #789C24;
+
+$area-color: $main-color2;
+$element-color: lighten(adjust-hue($area-color, -15%), 5%);
+$button-color: lighten(adjust-hue($area-color, -0%), 5%);
+
+$area-color-top: lighten($area-color, 7%);
+$area-color-bottom: darken($area-color, 6%);
+
+$element-color-top: lighten($element-color, 7%);
+$element-color-bottom: darken($element-color, 6%);
+
+$button-color-top: lighten($button-color, 7%);
+$button-color-bottom: darken($button-color, 6%);
+
+.old {
+	.minimal {
+		.minimal.main-bar {
+			.controls.edit {
+				display: none;
+				margin-right: 8px;
+			}
+			.controls.main {
+				button.minimal {
+					span {
+						display: inline;
+					}
+					i.fa-window-close-o {
+						display: none;
+					}
+				}
+			}
+		}
+		&.minimal-on {
+			body {
+				margin-top: 25px;
+			}
+			.minimal.main-bar {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				.controls.main {
+					button.minimal {
+						span {
+							display: none;
+						}
+						i.fa-snowflake-o {
+							display: none;
+						}
+						i.fa-window-close-o {
+							display: inline-block;
+						}
+					}
+				}
+				.controls.edit {
+					display: block;
+				}
+
+				i.fa-window-close-o {
+					display: inline-block;
+				}
+			}
+		}
+		&.minimal-hide-btn-labels {
+			.minimal.main-bar,
+			.minimal.area-top-bar,
+			.minimal.area-bottom-bar,
+			.minimal.edit-top-bar,
+			.minimal.edit-bottom-bar {
+				button.minimal {
+					span {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	.minimal.main-bar,
+	.minimal-content-area .minimal {
+		margin: 0;
+		padding: 0;
+	}
+
+	.minimal-content-area .minimal.clear:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+
+	.minimal.main-bar,
+	.minimal-content-area .minimal.area-top-bar,
+	.minimal-content-area .minimal.edit-top-bar,
+	.minimal-content-area .minimal.area-bottom-bar,
+	.minimal-content-area .minimal.edit-bottom-bar {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		height: 25px;
+		line-height: 21px;
+		padding: 1px 8px;
+		border-radius: 2px;
+		font-family: monospace;
+		font-size: 13px;
+		background: $area-color;
+		border: 1px solid $area-color-top;
+		border-right: 1px solid $area-color-bottom;
+		border-bottom: 1px solid $area-color-bottom;
+		color: $font-color;
+	}
+
+	.minimal-content-area .minimal.edit-bottom-bar {
+		height: auto;
+		min-height: 8px;
+		max-height: 25px;
+	}
+
+	.minimal-content-area .minimal.edit-top-bar,
+	.minimal-content-area .minimal.edit-bottom-bar {
+		background: $element-color;
+		border-color: $element-color-top;
+		border-right-color: $element-color-bottom;
+		border-bottom-color: $element-color-bottom;
+	}
+
+	.minimal-content-area .minimal.area-top-bar,
+	.minimal-content-area .minimal.edit-top-bar {
+		border-top-left-radius: 8px;
+		border-top-right-radius: 8px;
+	}
+
+	.minimal-content-area .minimal.area-bottom-bar,
+	.minimal-content-area .minimal.edit-bottom-bar {
+		border-bottom-left-radius: 8px;
+		border-bottom-right-radius: 8px;
+		text-align: right;
+	}
+
+	.minimal.main-bar button.minimal,
+	.minimal-content-area .minimal button.minimal {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		border: none;
+		cursor: pointer;
+		height: 19px;
+		line-height: 10px;
+		margin-top: 1px;
+		padding: 4px 5px;
+		border-radius: 3px;
+		font-family: monospace;
+		font-size: 11px;
+		position: relative;
+		overflow: hidden;
+		background: $button-color;
+		border: 1px solid $button-color-top;
+		border-right: 1px solid $button-color-bottom;
+		border-bottom: 1px solid $button-color-bottom;
+		color: $font-color;
+	}
+
+	.minimal.main-bar {
+		position: absolute;
+		right: 0;
+		z-index: 100000000;
+		display: inline-block;
+
+		.title {
+			display: none;
+		}
+
+		&.on {
+			position: static;
+			display: block;
+			border-radius: 0;
+
+			.title {
+				display: block;
+			}
+		}
+		.controls {
+			float: right;
+			font-size: 0;
+		}
+	}
+
+	.minimal.main-bar button:focus,
+	.minimal-content-area .minimal button:focus {
+		outline: 0;
+	}
+
+	.minimal-content-area {
+		.minimal-drag & {
+			.minimal.sortable {
+				min-height: 100px;
+			}
+		}
+
+		.form-check-label {
+			padding-left: 1.75rem;
+		}
+
+		.form-check-input {
+			margin-left: -1.75rem;
+		}
+
+		.edit-top-bar {
+			position: relative;
+			.title {
+				position: absolute;
+				float: left;
+				button {
+					cursor: grab;
+					&:active {
+						cursor: grabbing;
+					}
+				}
+			}
+			.controls {
+				float: right;
+				font-size: 5px;
+			}
+		}
+
+		.minimal {
+			form.minimal {
+				display: inline;
+			}
+		}
+
+		.ui-state-highlight {
+			min-height: 100px;
+			background-color: rgba(120, 156, 36, 0.25);
+		}
+	}
+
+	.minimal-modal {
+		a.minimal.select-cte {
+			display: block;
+			margin: -15px;
+			padding: 15px;
+			&:hover {
+				cursor: pointer;
+				background-color: rgba(120, 156, 36, 0.25);
+			}
+			p {
+				margin: 0;
+			}
+		}
+	}
+}

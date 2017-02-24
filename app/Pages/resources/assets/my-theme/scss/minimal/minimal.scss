@@ -1,0 +1,479 @@
+// Return a lighter color
+// 0% is the same color, 100% is white
+@function tint($color, $percent: 0%, $alpha: 1) {
+	@return rgba(mix(white, $color, $percent), $alpha);
+}
+
+// Return a darker color
+// 0% is the same color, 100% is black
+@function shade($color, $percent: 0%, $alpha: 1) {
+	@return rgba(mix(black, $color, $percent), $alpha);
+}
+
+// Return an intensity of white
+// 0% is black, 50% is a middle gray, 100% is white
+@function white($percent: 100%, $alpha: 1) {
+	@return rgba(mix(white, black, $percent), $alpha);
+}
+
+// Return an intensity of black
+// 0% is white, 50% is a middle gray, 100% is black
+@function black($percent: 100%, $alpha: 1) {
+	@return rgba(mix(black, white, $percent), $alpha);
+}
+
+$font-color: white;
+$main-color1: #6B8E23;
+$main-color2: #638522;
+$main-color2b: #547521;
+$main-color2a: #528C4B;
+$main-color3: #3D5F8E;
+$main-color4: #9A4D43;
+$main-color5: #306E76;
+$main-color6: #605596;
+$main-color7: #937D2A;
+$main-color8: #4B4B4B;
+$main-color9: #878787;
+
+$hue1: -20%;
+$hue2: 20%;
+
+$area-color: $main-color3;
+$element-color: lighten(adjust-hue($area-color, $hue1), 7%);
+//$element-color: lighten(complement($area-color), 0%);
+$button-color: lighten(adjust-hue($area-color, -0%), 5%);
+$area-color-top: lighten($area-color, 7%);
+$area-color-bottom: darken($area-color, 6%);
+$element-color-top: lighten($element-color, 7%);
+$element-color-bottom: darken($element-color, 6%);
+$button-color-top: lighten($button-color, 7%);
+$button-color-bottom: darken($button-color, 6%);
+
+html.minimal {
+
+	.color-a {
+		color: $area-color;
+	}
+
+	.color-a-light {
+		color: $area-color-top;
+	}
+
+	.color-a-dark {
+		color: $area-color-bottom;
+	}
+
+	.color-b {
+		color: $element-color;
+	}
+
+	.color-b-light {
+		color: $element-color-top;
+	}
+
+	.color-b-dark {
+		color: $element-color-bottom;
+	}
+
+	.bg-color-a {
+		background-color: $area-color;
+	}
+
+	.bg-color-a-light {
+		background-color: $area-color-top;
+	}
+
+	.bg-color-a-dark {
+		background-color: $area-color-bottom;
+	}
+
+	.bg-color-b {
+		background-color: $element-color;
+	}
+
+	.bg-color-b-light {
+		background-color: $element-color-top;
+	}
+
+	.bg-color-b-dark {
+		background-color: $element-color-bottom;
+	}
+
+	&.minimal-on {
+		body {
+			margin-top: 25px;
+		}
+		.minimal-bar.minimal-bar-main {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			border-radius: 0;
+
+			.controls.main,
+			.controls.user {
+				margin-left: 8px;
+			}
+
+			.controls.main {
+				button {
+					span {
+						display: none;
+					}
+					i.fa-window-close-o {
+						display: inline-block;
+					}
+					i.fa-snowflake-o {
+						display: none;
+					}
+				}
+			}
+			.title,
+			.controls.edit,
+			.controls.user {
+				display: block;
+			}
+		}
+	}
+
+	&.minimal-hide-btn-labels {
+		.minimal-bar button span {
+			display: none;
+		}
+	}
+
+	.minimal-drag {
+		.minimal-sortable,
+		.minimal-drop-placeholder {
+			min-height: 100px;
+		}
+
+		.minimal-drop-placeholder {
+			background-color: lighten(rgba($element-color, 0.4), 30%);
+		}
+	}
+
+	.minimal-bar.minimal-bar-main {
+		position: fixed;
+		right: 0;
+		z-index: 100000000;
+		display: inline-block;
+		border-radius: 8px 8px 8px 8px;
+
+		.title {
+			display: none;
+		}
+		.controls.main {
+			button span {
+				display: inline;
+			}
+			i.fa-window-close-o {
+				display: none;
+			}
+		}
+		.controls.edit {
+			display: none;
+		}
+		.controls.user {
+			display: none;
+		}
+	}
+
+	.minimal-area,
+	.minimal-clear:after {
+		content: '';
+		display: block;
+		clear: both;
+	}
+
+	.minimal-bar,
+	.minimal-bar *,
+	.minimal-area,
+	.minimal-element,
+	.minimal-clear {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+	}
+
+	.minimal-mute > *:not(.minimal-bar) {
+		opacity: 0.75;
+	}
+
+	.minimal-bar {
+		box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		height: 25px;
+		line-height: 21px;
+		padding: 1px 8px;
+		font-family: monospace;
+		font-size: 13px;
+		color: $font-color;
+		position: relative;
+		overflow: hidden;
+
+		.title {
+			position: absolute;
+			float: left;
+		}
+
+		.controls {
+			float: right;
+			font-size: 5px;
+		}
+
+		button {
+			box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			border: none;
+			cursor: pointer;
+			height: 19px;
+			min-width: 25px;
+			line-height: 10px;
+			margin-top: 1px;
+			padding: 4px 5px;
+			border-radius: 3px;
+			font-family: monospace;
+			font-size: 11px;
+			position: relative;
+			overflow: hidden;
+			background: $button-color;
+			border: 1px solid $button-color-top;
+			border-right: 1px solid $button-color-bottom;
+			border-bottom: 1px solid $button-color-bottom;
+			color: $font-color;
+
+			i.fa {
+				margin-top: -5px;
+			}
+
+			&:focus {
+				outline: 0;
+			}
+			&.minimal-btn-effects {
+				&:active {
+					background: $button-color-top;
+					border: 1px solid $button-color-bottom;
+					border-right: 1px solid $button-color-top;
+					border-bottom: 1px solid $button-color-top;
+				}
+
+				&:hover {
+					background: darken($button-color-top, 5%);
+				}
+
+				&:active:hover {
+					background: $button-color-top;
+				}
+
+				&:after {
+					content: '';
+					background: white;
+					display: block;
+					position: absolute;
+					padding: 0;
+					margin: 0;
+					opacity: 0.3;
+					transition: 0s;
+				}
+
+				&:active:after {
+					padding-top: 300%;
+					padding-left: 350%;
+					margin-left: -20px !important;
+					margin-top: -120%;
+					opacity: 0;
+					transition: all 0.2s;
+				}
+			}
+
+			&.minimal-btn-invisible {
+				margin: 0;
+				padding: 0;
+				background: transparent;
+				border: 0;
+			}
+		}
+	}
+
+	.minimal-bar-top {
+		border-radius: 8px 8px 2px 2px;
+	}
+
+	.minimal-bar-bottom {
+		height: auto;
+		min-height: 8px;
+		max-height: 25px;
+		border-radius: 2px 2px 8px 8px;
+		text-align: right;
+	}
+
+	.minimal-bar-main {
+		background: $area-color;
+		border-top: 1px solid $area-color-top;
+		border-bottom: 1px solid $area-color-bottom;
+	}
+
+	.minimal-area div.minimal-bar-area {
+		background: $area-color;
+		border: 1px solid $area-color-top;
+		border-right-color: $area-color-bottom;
+		border-bottom-color: $area-color-bottom;
+	}
+
+	.minimal-element div.minimal-bar-element {
+		background: $element-color;
+		border: 1px solid $element-color-top;
+		border-right-color: $element-color-bottom;
+		border-bottom-color: $element-color-bottom;
+	}
+
+	.minimal-grabbable {
+		cursor: grab;
+		&:active {
+			cursor: grabbing;
+		}
+	}
+
+	.minimal.accordion {
+		.card-header {
+			font-weight: bold;
+		}
+	}
+
+	.minimal.nav-tabs {
+		border-bottom: 1px solid #DDDDDD;
+
+		a, a:hover, a:visited, a:active, a:focus {
+			font-weight: bold;
+		}
+
+		.nav-item.open .nav-link,
+		.nav-item.open .nav-link:focus,
+		.nav-item.open .nav-link:hover,
+		.nav-link.active,
+		.nav-link.active:focus,
+		.nav-link.active:hover {
+			background-color: #FFFFFF;
+			border-color: #DDDDDD #DDDDDD transparent;
+			color: $area-color;
+		}
+
+	}
+
+	.minimal.tab-content {
+		padding: 1em;
+		border: 1px solid #DDDDDD;
+		border-top : 0;
+	}
+
+	.minimal-modal {
+
+
+		.modal-fluid {
+			max-width: 90%;
+
+			//margin: 2.5vh auto;
+			/*Sets the maximum height of the entire modal to 95% of the screen height*/
+			.modal-content {
+				min-height: 85vh;
+				max-height: 85vh;
+			}
+
+			/*Sets the maximum height of the modal body to 90% of the screen height*/
+			.modal-body {
+				min-height: 80vh;
+				max-height: 80vh;
+			}
+
+			/*Sets the maximum height of the modal image to 69% of the screen height*/
+			.modal-body img {
+				max-height: 69vh;
+			}
+
+			iframe {
+				border: 0;
+				width: 100%;
+				height: 100%;
+				min-height: calc(75vh);
+				max-height: calc(75vh);
+			}
+		}
+
+		.modal-content {
+			background-clip: inherit;
+			background-color: transparent;
+			border: 1px solid rgba(0, 0, 0, 0.2);
+			border-radius: 0.4rem;
+
+
+		}
+		.modal-header {
+			border-top-left-radius: 0.4rem;
+			border-top-right-radius: 0.4rem;
+			background: $area-color;
+			color: $font-color;
+
+			.modal-title {
+				i.fa {
+					margin-right: 15px;
+				}
+			}
+
+			button.close {
+				color: $font-color;
+				opacity: 0.8;
+				&:hover {
+					opacity: 1;
+				}
+			}
+		}
+
+		.modal-body {
+			background: $font-color;
+			a, a:hover, a:visited, a:active, a:focus {
+				color: $area-color;
+				outline: 0;
+			}
+			label {
+				font-weight: bold;
+			}
+		}
+		.modal-footer {
+			border-bottom-left-radius: 0.4rem;
+			border-bottom-right-radius: 0.4rem;
+			background: lighten($element-color, 50%);
+			background: darken($font-color, 8%);;
+		}
+
+		.btn-primary {
+			background-color: $element-color-top;
+			border-color: $element-color-top;
+			color: #FFFFFF;
+		}
+
+		.btn-primary.focus, .btn-primary:focus, .btn-primary:hover {
+			background-color: $element-color;
+			border-color: $element-color;
+			color: #FFFFFF;
+		}
+
+		a.minimal.select-cte {
+			display: block;
+			margin: -15px;
+			padding: 15px;
+			color: inherit;
+			&:hover {
+				cursor: pointer;
+				//background-color: rgba(120, 156, 36, 0.25);
+				background-color: rgba(lighten($area-color, 10%), 0.2);
+			}
+			p {
+				margin: 0;
+			}
+		}
+	}
+}

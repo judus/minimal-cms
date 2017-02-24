@@ -1,0 +1,35 @@
+{
+  "name": "minimal/cms",
+  "description": "The Minimal CMS.",
+  "keywords": [
+    "cms",
+    "minimal",
+    "mvc"
+  ],
+  "license": "MIT",
+  "type": "PHP-CMS",
+  "authors": [
+    {
+      "name": "Julien Duseyau",
+      "email": "julien.duseyau@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://julien_duseyau@bitbucket.org/julien_duseyau/minimal-cms.git"
+    }
+  ],
+  "require-all": true,
+  "minimum-stability": "dev",
+  "require": {
+    "maduser/minimal-cms": "*"
+  },
+  "require-dev": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Acme\\": "app"
+    }
+  }
+}
