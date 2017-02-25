@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     // Core
     'Maduser\Minimal\Interfaces\ConfigInterface' =>
         Maduser\Minimal\Core\Config::class,
@@ -32,28 +33,5 @@ return [
 
     'Maduser\Minimal\Interfaces\ViewInterface' =>
         Maduser\Minimal\Libraries\View\View::class,
-
-    // CMS-Module
-    'Maduser\Minimal\Cms\Interfaces\NodesInterface' =>
-        Maduser\Minimal\Cms\Models\Nodes::class,
-
-    'Maduser\Minimal\Cms\Interfaces\ContentInterface' =>
-        Maduser\Minimal\Cms\Models\Content::class,
-
-    'Maduser\Minimal\Cms\Interfaces\PagesInterface' =>
-        Maduser\Minimal\Cms\Models\Pages::class,
-
-    // Auth-Module
-    'Maduser\Minimal\Auth\Interfaces\AuthInterface' =>
-        Maduser\Minimal\Auth\Models\Auth::class,
-
-
-    // Trees-Module
-    'Maduser\Minimal\Trees\Interfaces\NodeInterface' =>
-        Maduser\Minimal\Trees\Eloquent\Node::class,
-
-    'Maduser\Minimal\Trees\Interfaces\TreegridInterface' =>
-        Maduser\Minimal\Trees\Models\Treegrid::class,
-
 
 ];

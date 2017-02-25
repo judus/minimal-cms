@@ -1,11 +1,9 @@
 <?php
-/** @var \Maduser\Minimal\Base\Core\Modules $modules */
+/** @var \Maduser\Minimal\Core\Modules $modules */
 
-$modules->register('Assets');
-$modules->register('Pages', [
-    //'config' => 'Config/config.php',
-    //'bindings' => 'Config/bindings.php',
-    //'providers' => 'Config/providers.php',
-    //'routes' => 'Config/routes.php',
-]);
-
+return [
+    'minimal-assets' => 'vendor/maduser/minimal-assets/src/Minimal/Assets',
+    'minimal-auth' => 'vendor/maduser/minimal-auth/src/Minimal/Auth',
+    'minimal-tree' => 'vendor/maduser/minimal-tree/src/Minimal/Tree',
+    'minimal-cms' => 'vendor/maduser/minimal-cms/src/Minimal/Cms',
+];

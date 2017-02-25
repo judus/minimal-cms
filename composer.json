@@ -18,9 +18,24 @@
     {
       "type": "vcs",
       "url": "https://julien_duseyau@bitbucket.org/julien_duseyau/minimal-cms.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://julien_duseyau@bitbucket.org/julien_duseyau/minimal-assets.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://julien_duseyau@bitbucket.org/julien_duseyau/minimal-db.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://julien_duseyau@bitbucket.org/julien_duseyau/minimal-auth.git"
+    },
+    {
+      "type": "vcs",
+      "url": "https://julien_duseyau@bitbucket.org/julien_duseyau/minimal-tree.git"
     }
   ],
-  "require-all": true,
   "minimum-stability": "dev",
   "require": {
     "maduser/minimal-cms": "*"

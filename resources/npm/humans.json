@@ -2,7 +2,7 @@
   "Development": [
     {
       "Lead": "Julien Duseyau <julien.duseyau@gmail.com>",
-      "Site": "https://github.com/judus/minimal-framework",
+      "Site": "https://github.com/judus/minimal-cms",
       "Location": "Basel, Switzerland"
     }
   ],
@@ -12,7 +12,7 @@
       "Last update": "<%= grunt.template.today('yyyy-mm-dd') %>",
       "Standard": "HTML5, CSS3",
       "Components": "Modernizr, JSON, jQuery, Bootstrap",
-      "Software": "Grunt, Sass, Git, PHP, Minimal Framework"
+      "Software": "Grunt, Sass, Git, PHP, Minimal CMS"
     }
   ]
 }

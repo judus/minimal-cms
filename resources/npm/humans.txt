@@ -3,12 +3,12 @@
 
 # DEVELOPMENT
 	Lead: Julien Duseyau <julien.duseyau@gmail.com>
-	Site: https://github.com/judus/minimal-framework
+	Site: https://github.com/judus/minimal-cms
 	Location: Basel, Switzerland
 
 # SITE
-	Project: minimal-framework
+	Project: minimal-cms
 	Last Update: 2017-01-25
 	Standard: HTML5, CSS3
 	Components: Modernizr, JSON, jQuery, Bootstrap
-	Software: Grunt, Sass, Git, PHP, Minimal Framework
+	Software: Grunt, Sass, Git, PHP, Minimal CMS

@@ -30,7 +30,7 @@ define('DB_NAME', 'minimalCms');
 define('DB_USER', 'minimalCms');
 define('DB_PASSWORD', 'minimalCms');
 
-new \Acme\Eloquent\EloquentBoot();
+new \Maduser\Minimal\Db\Eloquent\EloquentBoot();
 
 $benchmark = new \Maduser\Minimal\Libraries\Benchmark\Benchmark();
 
