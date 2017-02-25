@@ -1,6 +1,7 @@
 <?php
 
 return [
+
     // Core classes
     'CollectionFactory' => Maduser\Minimal\Providers\CollectionFactoryProvider::class,
     'Collection'        => Maduser\Minimal\Providers\CollectionProvider::class,
@@ -24,21 +25,5 @@ return [
         Maduser\Minimal\Libraries\Assets\AssetsProvider::class,
     'Maduser\Minimal\Libraries\View\View' =>
         Maduser\Minimal\Libraries\View\ViewProvider::class,
-
-    // CMS-Module
-    'Maduser\Minimal\Cms\Models\Content' =>
-        Maduser\Minimal\Cms\Providers\ContentProvider::class,
-    'Maduser\Minimal\Cms\Models\Nodes' =>
-        Maduser\Minimal\Cms\Providers\NodesProvider::class,
-    'Maduser\Minimal\Cms\Models\Pages' =>
-        Maduser\Minimal\Cms\Providers\PagesProvider::class,
-
-    // Auth-Module
-    'Maduser\Minimal\Auth\Models\Auth' =>
-        Maduser\Minimal\Auth\Providers\AuthProvider::class,
-
-    // Trees-Module
-    'Maduser\Minimal\Trees\Models\Treegrid' =>
-        Maduser\Minimal\Trees\Providers\TreegridProvider::class,
 
 ];

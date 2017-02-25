@@ -1,48 +1,42 @@
 <?php
 
+// PHP 7.0 is required
 if (version_compare(phpversion(), '7.0.0', '<')) {
     die('Requires PHP version > 7.0.0');
 }
 
+// Development mode
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', true);
 
+// Load composer autoloader
 require "../vendor/autoload.php";
+
+// Development utilities
 require "../helpers/common.php";
-/*
-require "../libraries/Translation.php";
 
-/**
- * Example 1
- * /
-new \Maduser\Minimal\Core\Minimal([
-    'basepath' => realpath(__DIR__ . '/../'),
-]);
-// exits PHP
+// Boot Eloquent
+if (file_exists('../config/database.php')) {
+    $database = require "../config/database.php";
+    new \Maduser\Minimal\Db\Eloquent\EloquentBoot(
+        $database['connections']['mysql']
+    );
+} else {
+    die('Database connection not set');
+}
 
-/**
- * Example 2
- * will do the same as example 1
- */
-define('DB_HOST', 'localhost');
-define('DB_PORT', 'minimalCms');
-define('DB_NAME', 'minimalCms');
-define('DB_USER', 'minimalCms');
-define('DB_PASSWORD', 'minimalCms');
-
-new \Maduser\Minimal\Db\Eloquent\EloquentBoot();
-
+// Start the benchmarker
 $benchmark = new \Maduser\Minimal\Libraries\Benchmark\Benchmark();
-
 $benchmark->mark('Start');
 
+// Instantiate the Minimal Framework and let's roll
 $minimal = new \Maduser\Minimal\Core\Minimal([
     'basepath' => realpath(__DIR__ . '/../'),
     'app' => 'app',
     'config' => 'config/config.php',
     'bindings' => 'config/bindings.php',
     'providers' => 'config/providers.php',
-    'routes' => 'config/routes.php',
+    'routes' => 'config/routes.php'
 ], true);
 
 $benchmark->mark('Minimal instantiated');
@@ -58,8 +52,6 @@ $request = $minimal->getRequest();
 
 /** @var \Maduser\Minimal\Core\Router $router */
 $router = $minimal->getRouter();
-
-
 
 $benchmark->mark('Resolving route');
 
