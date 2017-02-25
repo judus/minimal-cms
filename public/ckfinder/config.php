@@ -26,7 +26,12 @@ $config = array();
 // http://docs.cksource.com/ckfinder3-php/configuration.html#configuration_options_authentication
 
 $config['authentication'] = function () {
-    return true;
+
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+
+    return isset($_SESSION['currentUser']);
 };
 
 /*============================ License Key ============================================*/
@@ -69,7 +74,7 @@ $config['backends'][] = array(
     'name'         => 'default',
     'adapter'      => 'local',
     'baseUrl'      => '/user/',
-//  'root'         => '', // Can be used to explicitly set the CKFinder user files directory.
+    'root'         => $_SERVER['DOCUMENT_ROOT'].'/user/', // Can be used to explicitly set the CKFinder user files directory.
     'chmodFiles'   => 0777,
     'chmodFolders' => 0755,
     'filesystemEncoding' => 'UTF-8',

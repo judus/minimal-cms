@@ -618,9 +618,9 @@ AddDefaultCharset utf-8
 # http://msdn.microsoft.com/en-us/library/ie/gg622941.aspx
 # https://mimesniff.spec.whatwg.org/
 
-<IfModule mod_headers.c>
-    Header set X-Content-Type-Options "nosniff"
-</IfModule>
+#<IfModule mod_headers.c>
+#    Header set X-Content-Type-Options "nosniff"
+#</IfModule>
 
 # ----------------------------------------------------------------------
 # | Reflected Cross-Site Scripting (XSS) attacks                       |
