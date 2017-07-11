@@ -1,0 +1,3 @@
+public/.htaccess linguist-vendored
+public/build/* linguist-vendored
+resources/npm/assets/* linguist-vendored
