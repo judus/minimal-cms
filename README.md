@@ -12,15 +12,15 @@ https://youtu.be/ETdzZBbMq2s
 Frontend editing
 ![Screenshot](http://crashleague.net/minimal-cms-screens/s3.png)
 
-Building forms for the components
+Developer admin: Building forms for the components in the node browser
 ![Screenshot](http://crashleague.net/minimal-cms-screens/s1.png)
 
-Building forms for the components
+Developer admin: Building forms for the components in the node browser
 ![Screenshot](http://crashleague.net/minimal-cms-screens/s2.png)
 
-Introduced UUIDs, recovery of nodes from change history, source code editor for view models and views
+Developer admin: Introduced UUIDs, recovery of nodes from change history, source code editor for view models and views
 ![Screenshot](http://crashleague.net/minimal-cms-screens/s4.png)
 
-The backend for non-developers e.g. the customer (very early stage as you can see)
+Redaction admin: The backend for the non-developers e.g. the customers (very early stage as you can see)
 ![Screenshot](http://crashleague.net/minimal-cms-screens/s5.png)
 
